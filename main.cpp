@@ -17,49 +17,45 @@ int main() {
     cout << "3. Concatenate strings\n";
     cout << "4. Find character in string\n";
     cout << "5. Find substring in string\n";
+    cout << "6. Compare strings\n";
+    cout << "7. Convert string to number\n";
+    cout << "8. Convert number to string\n";
+    cout << "9. Uppercase string\n";
+    cout << "10. Lowercase string\n";
+    cout << "11. Reverse string\n";
     cout << "Enter your choice: ";
     cin >> choice;
 
     switch (choice) {
-    case 1:
-        cout << "Length of the first string: " << StringFunctions::mystrlen(str1) << endl;
+
+    case 6:
+        cout << "String comparison result: " << StringFunctions::mystrcmp(str1, str2) << endl;
         break;
-    case 2:
-        StringFunctions::mystrcpy(str1, str2);
-        cout << "Copied string: " << str1 << endl;
+    case 7:
+        cout << "Converted string to number: " << StringFunctions::StringToNumber(str1) << endl;
         break;
-    case 3:
-        StringFunctions::mystrcat(str1, str2);
-        cout << "Concatenated string: " << str1 << endl;
-        break;
-    case 4: {
-        char s;
-        cout << "Enter the character to find: ";
-        cin >> s;
-        char* result = StringFunctions::mystrchr(str1, s);
-        if (result != nullptr) {
-            cout << "Character found at position: " << result - str1 << endl;
-        }
-        else {
-            cout << "Character not found in the string.\n";
-        }
+    case 8: {
+        int number;
+        cout << "Enter a number to convert to string: ";
+        cin >> number;
+        char* result = StringFunctions::NumberToString(number);
+        cout << "Converted number to string: " << result << endl;
+        delete[] result; 
         break;
     }
-    case 5: {
-        char* result = StringFunctions::mystrstr(str1, str2);
-        if (result != nullptr) {
-            cout << "Substring found at position: " << result - str1 << endl;
-        }
-        else {
-            cout << "Substring not found in the string.\n";
-        }
+    case 9:
+        cout << "Uppercased string: " << StringFunctions::Uppercase(str1) << endl;
         break;
-    }
+    case 10:
+        cout << "Lowercased string: " << StringFunctions::Lowercase(str1) << endl;
+        break;
+    case 11:
+        cout << "Reversed string: " << StringFunctions::mystrrev(str1) << endl;
+        break;
     default:
         cout << "Invalid choice\n";
     }
 
     return 0;
 }
-
 
